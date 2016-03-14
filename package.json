@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "assemble-core": "^0.14.3",
+    "assemble-core": "0.13.0",
     "assemble-loader": "^0.3.0",
     "babel-core": "^6.7.2",
     "babel-polyfill": "^6.7.2",
