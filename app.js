@@ -4,6 +4,7 @@ import utils from 'boiler-utils';
 import nunjucks from 'nunjucks';
 import consolidate from 'consolidate';
 import fs from 'fs';
+import matter from 'parser-front-matter';
 import Debug from './tags/debug';
 
 const {renameKey} = utils;
@@ -16,6 +17,17 @@ const nunj = nunjucks.configure({
 
 app.engine('.html', consolidate.nunjucks);
 app.create('pages', {renameKey}).use(loader());
+app.data({
+  bleep: 'bleep'
+});
+app.onLoad(/\.html$/, (file, next) => {
+  matter.parse(file, (err, file) => {
+    if (err) return next(err);
+    console.log('***ONLOAD FRONT MATTER***', file.data);
+
+    next(null, file);
+  });
+});
 
 nunj.addExtension('Debug', new Debug(app));
 
