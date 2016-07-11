@@ -15,6 +15,8 @@ bleep: 'bloop'
   {% debug key="view.key" %}
 
   <h1>{{message}}</h1>
+  <h1>Front Matter: {{bleep}}</h1>
+
   {% include partials('partial') %}
   {{ bloop( bleep, partials('partial') ) }}
 </body>
