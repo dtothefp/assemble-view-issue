@@ -1,0 +1,4 @@
+{% macro bloop(data, partial='partials/partial.html' ) %}
+  <h1>Message from the macro: {{data}}</h1>
+  {% include partials('partial') %}
+{% endmacro %}

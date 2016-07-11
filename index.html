@@ -1,6 +1,7 @@
 ---
 bleep: 'bloop'
 ---
+{% from macros('macro') import bloop %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,12 @@ bleep: 'bloop'
 </head>
 <body>
   {% debug key="bleep" %}
+  {% debug key="globalData" %}
+  {% debug key="pageData" %}
+  {% debug key="view.key" %}
+
   <h1>{{message}}</h1>
+  {% include partials('partial') %}
+  {{ bloop( bleep, partials('partial') ) }}
 </body>
 </html>
